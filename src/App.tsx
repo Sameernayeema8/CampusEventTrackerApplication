@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Chatbot from './components/Chatbot';
+import ChatbotSection from './components/ChatbotSection';
 import { 
   Home, 
   BookOpen, 
@@ -22,7 +24,7 @@ import {
   Lightbulb
 } from 'lucide-react';
 
-type Section = 'home' | 'learning' | 'resources' | 'downloads' | 'feedback';
+type Section = 'home' | 'learning' | 'resources' | 'downloads' | 'feedback' | 'chatbot';
 
 interface Resource {
   id: string;
@@ -286,6 +288,13 @@ function App() {
               <ChevronRight className="ml-2 h-4 w-4" />
             </button>
             <button
+              onClick={() => setActiveSection('chatbot')}
+              className="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors duration-200"
+            >
+              Try AI Assistant
+              <Brain className="ml-2 h-4 w-4" />
+            </button>
+            <button
               onClick={() => setActiveSection('resources')}
               className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-medium rounded-lg border border-blue-600 hover:bg-blue-50 transition-colors duration-200"
             >
@@ -323,8 +332,8 @@ function App() {
           <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
             <Star className="h-6 w-6 text-orange-600" />
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">24/7</h3>
-          <p className="text-gray-600">Access Available</p>
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">AI</h3>
+          <p className="text-gray-600">Assistant Available</p>
         </div>
       </div>
 
@@ -616,6 +625,8 @@ function App() {
         return renderDownloads();
       case 'feedback':
         return renderFeedback();
+      case 'chatbot':
+        return <ChatbotSection />;
       default:
         return renderHome();
     }
@@ -640,7 +651,8 @@ function App() {
                 { id: 'learning', label: 'Learning', icon: BookOpen },
                 { id: 'resources', label: 'Resources', icon: Users },
                 { id: 'downloads', label: 'Downloads', icon: Download },
-                { id: 'feedback', label: 'Feedback', icon: MessageSquare }
+                { id: 'feedback', label: 'Feedback', icon: MessageSquare },
+                { id: 'chatbot', label: 'AI Assistant', icon: Brain }
               ].map(({ id, label, icon: Icon }) => (
                 <button
                   key={id}
@@ -668,7 +680,8 @@ function App() {
             { id: 'learning', label: 'Learning', icon: BookOpen },
             { id: 'resources', label: 'Resources', icon: Users },
             { id: 'downloads', label: 'Downloads', icon: Download },
-            { id: 'feedback', label: 'Feedback', icon: MessageSquare }
+            { id: 'feedback', label: 'Feedback', icon: MessageSquare },
+            { id: 'chatbot', label: 'AI Assistant', icon: Brain }
           ].map(({ id, label, icon: Icon }) => (
             <button
               key={id}
@@ -692,6 +705,7 @@ function App() {
       </main>
 
       {/* Footer */}
+      <Chatbot />
       <footer className="bg-white border-t mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
