@@ -33,7 +33,7 @@ This hub makes it easier for students to connect, collaborate, and grow their sk
 ---
 
 ## 🚀 How to Access
-- Visit: **[[Your Published Google Site Link Here]](https://github.com/Sameernayeema8/CampusEventTrackerApplication/edit/TrackerApplication/README.md)**
+- Visit: **[[Your Published Google Site Link Here]]**
 - Navigate through the menu to explore different sections.
 
 ---
